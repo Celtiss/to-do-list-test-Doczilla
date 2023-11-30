@@ -1,0 +1,12 @@
+.tasks {
+    width: 100%;
+    min-height: 427px;
+    display: flex;
+    flex-direction: column;
+    background-color: #b0c4de75;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px;
+    color: #000;
+}

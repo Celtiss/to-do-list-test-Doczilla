@@ -1,0 +1,14 @@
+.tasks__sort-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 18px;
+    color: #4682B4;
+    background-image: url('../../../images/sort-icon.png');
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 17px;
+}

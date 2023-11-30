@@ -1,0 +1,49 @@
+@import url('../vendor/normalize.css');
+
+/* PAGE */
+@import url('../blocks/page/page.css');
+@import url('../blocks/page/__container/page__container.css');
+
+/* HEADER */
+@import url('../blocks/header/header.css');
+@import url('../blocks/search/search.css');
+@import url('../blocks/search/__input/search__input.css');
+@import url('../blocks/search/button/search__button.css');
+@import url('../blocks/header/__profile-icon/header__profile-icon.css');
+
+/* MAIN CONTENT */
+@import url('../blocks/content/content.css');
+
+/* FILTER */
+@import url('../blocks/filter/filter.css');
+@import url('../blocks/filter/__button/filter__button.css');
+@import url('../blocks/filter/__date/filter__date.css');
+@import url('../blocks/filter/__checkbox-label/filter__checkbox-label.css');
+@import url('../blocks/filter/__checkbox/filter__checkbox.css');
+@import url('../blocks/filter/');
+
+/* TASKS */
+@import url('../blocks/tasks/tasks.css');
+@import url('../blocks/tasks/__head/tasks__head.css');
+@import url('../blocks/tasks/__date/tasks__date.css');
+@import url('../blocks/tasks/__sort-btn/tasks__sort-btn.css');
+@import url('../blocks/tasks/__list/tasks__list.css');
+
+/* TASK */
+@import url('../blocks/task/task.css');
+@import url('../blocks/task/__title/task__title.css');
+@import url('../blocks/task/__content/task__content.css');
+@import url('../blocks/task/__desc/task__desc.css');
+@import url('../blocks/checkbox/checkbox.css');
+@import url('../blocks/task/__date/task__date.css');
+
+/* POPUP */
+@import url('../blocks/popup/popup.css');
+@import url('../blocks/popup/_is-opened/popup_is-opened.css');
+@import url('../blocks/popup/__container/popup__container.css');
+@import url('../blocks/popup/__head/popup__head.css');
+@import url('../blocks/popup/__info/popup__info.css');
+@import url('../blocks/popup/__title/popup__title.css');
+@import url('../blocks/popup/__date/popup__date.css');
+@import url('../blocks/popup/__fullDesc/popup__fullDesc.css');
+@import url('../blocks/popup/__btn-close/popup__btn-close.css');
