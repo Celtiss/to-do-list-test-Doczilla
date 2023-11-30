@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/index.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>To-do-list</title>
 </head>
 <body class="page">
-    <section class="page__container">
+    <div class="page__container">
         <header class="header">
             <form action="#" class="search">
                 <input type="button" class="search__button">
@@ -15,6 +18,19 @@
             </form>
             <img src="./images/profile-icon.png" alt="Картинка профиля" class="header__profile-icon">
         </header>
-    </section>
+        <main class="content">
+            <aside class="filter">
+                <button type="button" class="filter__button">Сегодня</button>
+                <button type="button" class="filter__button">На неделю</button>
+                <div id="datepicker" class="filter__date"></div>
+                <label class="filter__checkbox-label">
+                    <input type="checkbox" class="filter__checkbox">
+                    <span class="filter__checkbox-text">Только невыполненные</span>
+                </label>
+                
+            </aside>
+        </main>
+    </div>
+    <script type="module" src="pages/index.js"></script>
 </body>
 </html>

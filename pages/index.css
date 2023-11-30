@@ -1,10 +1,19 @@
 @import url('../vendor/normalize.css');
 
+/* PAGE */
 @import url('../blocks/page/page.css');
 @import url('../blocks/page/__container/page__container.css');
 
+/* HEADER */
 @import url('../blocks/header/header.css');
 @import url('../blocks/search/search.css');
 @import url('../blocks/search/__input/search__input.css');
 @import url('../blocks/search/button/search__button.css');
 @import url('../blocks/header/__profile-icon/header__profile-icon.css');
+
+/* FILTER */
+@import url('../blocks/filter/filter.css');
+@import url('../blocks/filter/__button/filter__button.css');
+@import url('../blocks/filter/__date/filter__date.css');
+@import url('../blocks/filter/__checkbox-label/filter__checkbox-label.css');
+@import url('../blocks/filter/__checkbox/filter__checkbox.css');
