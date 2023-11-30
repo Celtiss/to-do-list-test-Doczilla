@@ -1,0 +1,5 @@
+.popup__fullDesc {
+    width: 100%;
+    height: 260px;
+    overflow: auto;
+}
