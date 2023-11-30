@@ -4,6 +4,7 @@
     align-items: baseline;
     max-width: 400px;
     width: 100%;
+    min-height: 427px;
     row-gap: 15px;
     padding: 20px;
     box-sizing: border-box;

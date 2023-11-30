@@ -1,0 +1,4 @@
+.tasks__head {
+    display: flex;
+    justify-content: space-between;
+}

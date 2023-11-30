@@ -1,0 +1,6 @@
+.task__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+}
