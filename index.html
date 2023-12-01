@@ -35,22 +35,6 @@
                     <button class="tasks__sort-btn">Сортировать по дате</button>
                 </div>
                 <ul class="tasks__list">
-                    <li class="task">
-                        <h3 class="task__title">Название</h3>
-                        <div class="task__content">
-                            <p class="task_desc">Montes felis lectusnec nullalacus vitaesed neque vulputatenon vitaemorbi maurisleo lacus nullam tristique.</p>
-                            <input type="checkbox" id="task1" class="checkbox"><label for="task1"></label>
-                        </div>
-                        <p class="task__date">08.05.2022 00:10</p>
-                    </li>
-                    <li class="task">
-                        <h3 class="task__title">Название</h3>
-                        <div class="task__content">
-                            <p class="task__desc">Nullaconvallis sapienat maecenasdui habitasse quisnulla atultricies ametsed egetenim arcugravida vitaemorbi felisnisl ornaresit acvitae rhoncus integerduis tempusegestas risuseget aliquet dis magnis sapienat.</p>
-                            <input type="checkbox" id="task2" class="checkbox"><label for="task2"></label>
-                        </div>
-                        <p class="task__date">08.05.2022 00:10</p>
-                    </li>
                 </ul>
             </section>
         </main>
@@ -61,13 +45,23 @@
                         <h3 class="popup__title">Luctus actellus</h3>
                         <p class="popup__date">08.05.2022 00:10</p>
                     </div>
-                    <div class="popup__checkbox"><input type="checkbox" id="task2" class="checkbox"><label for="task2"></label></div>
+                    <div class="popup__checkbox"><input type="checkbox" id="task" class="checkbox"><label for="task"></label></div>
                 </div>
                 <p class="popup__fullDesc">Montes felis lectusnec nullalacus vitaesed neque vulputatenon vitaemorbi maurisleo lacus nullam tristique. Cursuselit viverradolor condimentum donec auguemus vestibulumrhoncus malesuadaat ac elementumetiam rhoncus maecenas faucibusmagna gravidaultrices nisiin quisnulla seda nuncut mattis maurisnulla tristiquepellentesque mifringilla tristiquepellentesque suscipit sedid. Auguemus ultricesvel porttitortristique tempus elitmassa lectusnec ultricesturpis volutpatvolutpat atsed nullamvenenatis etiama viverravel suscipit mifringilla nam commodo posueredolor commodo pharetrapharetra ac magnis.</p>
                 <button type="button" class="popup__btn-close">Готово</button>
             </div>
         </div>
     </div>
+    <template class="task-template">
+        <li class="task">
+            <h3 class="task__title"></h3>
+            <div class="task__content">
+                <p class="task__desc"></p>
+                <input type="checkbox" id="task" class="checkbox"><label class="task__label" for="task"></label>
+            </div>
+            <p class="task__date">08.05.2022 00:10</p>
+        </li>
+    </template>
     <script type="module" src="pages/index.js"></script>
 </body>
 </html>
