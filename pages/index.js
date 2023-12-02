@@ -6,8 +6,8 @@ import { Task } from '../components/Task.js';
 import { Popup } from '../components/Popup.js';
 import { Search } from '../components/Search.js';
 import { UnfullfilledTasks } from '../components/UnfulfilledTasks.js';
+import { Calendar } from '../components/Calendar.js';
 
-$( "#datepicker" ).datepicker();
 const initialTasks = [];
 const tasksSection = document.querySelector(selectors.tasksSection);
 const tasks = document.querySelector(selectors.tasks);
@@ -82,6 +82,7 @@ const getCurrentDate = function() {
 
 tasksDate.textContent = getCurrentDate();
 
+// Поиск по названию
 const search = new Search ({
     initialTasks: initialTasks,
     renderFoundTasks: (foundTasks) => {
@@ -95,6 +96,7 @@ const search = new Search ({
 
 search.setEventListeners();
 
+// Фильтр невыполненных задач
 const unfullfilledTasks = new UnfullfilledTasks({
     initialTasks: initialTasks,
     renderFilteredTasks: (foundTasks) => {
@@ -107,3 +109,17 @@ const unfullfilledTasks = new UnfullfilledTasks({
 }, filterContainer)
 
 unfullfilledTasks.setEventListeners();
+
+// Фильтр по календарю
+const calendar = new Calendar({
+    initialTasks: initialTasks,
+    renderFilteredTasks: (foundTasks) => {
+        tasksList.clear();
+        foundTasks.forEach((task) => {
+            const taskElement = createTask(task, selectors.taskTemplate);
+            tasksList.setElement(taskElement);
+        })
+    }
+}, $( "#datepicker" ));
+calendar.showDatePicker();
+calendar.setEventListeners();
