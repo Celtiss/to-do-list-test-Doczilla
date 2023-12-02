@@ -1,13 +1,20 @@
 'use strict';
 import { Api } from '../utils/Api.js';
-import { selectors } from '../utils/constants.js';
+import { selectors, months } from '../utils/constants.js';
 import { Section } from '../components/Section.js';
 import { Task } from '../components/Task.js';
 import { Popup } from '../components/Popup.js';
+import { Search } from '../components/Search.js';
+import { UnfullfilledTasks } from '../components/UnfulfilledTasks.js';
 
 $( "#datepicker" ).datepicker();
 const initialTasks = [];
 const tasksSection = document.querySelector(selectors.tasksSection);
+const tasks = document.querySelector(selectors.tasks);
+const tasksDate = tasks.querySelector(selectors.tasksDate);
+
+const searchForm = document.querySelector(selectors.search);
+const filterContainer = document.querySelector(selectors.filterContainer);
 
 // Экземпляр класса Api
 const api = new Api({
@@ -57,11 +64,46 @@ api.getTasks()
 })
 .catch(err => console.log(err));
 
-//Создание экземпляра задачки
+// Создание экземпляра задачки
 function createTask (data, taskTemplate) {
     const task = new Task(data, taskTemplate, handleTaskClick, getDate); 
     const taskElement = task.generateTask();
     return taskElement;
 }
 
+// Получить текущую дату
+const getCurrentDate = function() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = months[currentDate.getMonth()];
+    const day = currentDate.getDate();
+    return `${day} ${month} ${year}`;
+}
 
+tasksDate.textContent = getCurrentDate();
+
+const search = new Search ({
+    initialTasks: initialTasks,
+    renderFoundTasks: (foundTasks) => {
+        tasksList.clear();
+        foundTasks.forEach((task) => {
+            const taskElement = createTask(task, selectors.taskTemplate);
+            tasksList.setElement(taskElement);
+        })
+    }
+}, searchForm);
+
+search.setEventListeners();
+
+const unfullfilledTasks = new UnfullfilledTasks({
+    initialTasks: initialTasks,
+    renderFilteredTasks: (foundTasks) => {
+        tasksList.clear();
+        foundTasks.forEach((task) => {
+            const taskElement = createTask(task, selectors.taskTemplate);
+            tasksList.setElement(taskElement);
+        })
+    }
+}, filterContainer)
+
+unfullfilledTasks.setEventListeners();
