@@ -20,7 +20,6 @@
 @import url('../blocks/filter/__date/filter__date.css');
 @import url('../blocks/filter/__checkbox-label/filter__checkbox-label.css');
 @import url('../blocks/filter/__checkbox/filter__checkbox.css');
-@import url('../blocks/filter/');
 
 /* TASKS */
 @import url('../blocks/tasks/tasks.css');
@@ -28,6 +27,8 @@
 @import url('../blocks/tasks/__date/tasks__date.css');
 @import url('../blocks/tasks/__sort-btn/tasks__sort-btn.css');
 @import url('../blocks/tasks/__list/tasks__list.css');
+@import url('../blocks/tasks/__more-btn/tasks__more-btn.css');
+@import url('../blocks/tasks/__preloader/tasks__preloader.css');
 
 /* TASK */
 @import url('../blocks/task/task.css');

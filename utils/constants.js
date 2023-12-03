@@ -7,6 +7,9 @@ export const selectors = {
     search: '.search',
     searchButton: '.search__button',
     filterContainer: '.filter',
+    sortContainer: '.tasks__head',
+    moreButton: '.tasks__more-btn',
+    preloader: '.tasks__preloader',
 }
 
 export const months = [

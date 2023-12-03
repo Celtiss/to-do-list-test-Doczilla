@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/index.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>To-do-list</title>
 </head>
 <body class="page">
@@ -21,8 +20,8 @@
         </header>
         <main class="content">
             <aside class="filter">
-                <button type="button" class="filter__button">Сегодня</button>
-                <button type="button" class="filter__button">На неделю</button>
+                <button type="button" class="filter__button filter__button_type_today">Сегодня</button>
+                <button type="button" class="filter__button filter__button_type_week">На неделю</button>
                 <div id="datepicker" class="filter__date"></div>
                 <label class="filter__checkbox-label">
                     <input type="checkbox" class="filter__checkbox">
@@ -35,8 +34,10 @@
                     <span class="tasks__date">8 мая 2022</span>
                     <button class="tasks__sort-btn">Сортировать по дате</button>
                 </div>
+                <span class="tasks__preloader">Получение данных с сервера</span>
                 <ul class="tasks__list">
                 </ul>
+                <button class="tasks__more-btn">Показать еще</button>
             </section>
         </main>
         <div class="popup">
