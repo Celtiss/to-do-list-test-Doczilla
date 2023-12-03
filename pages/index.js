@@ -7,14 +7,20 @@ import { Popup } from '../components/Popup.js';
 import { Search } from '../components/Search.js';
 import { UnfullfilledTasks } from '../components/UnfulfilledTasks.js';
 import { Calendar } from '../components/Calendar.js';
+import { FilterToday } from '../components/FilterToday.js';
+import { FilterWeek } from '../components/FilterWeek.js';
+import { TasksSort } from '../components/TasksSort.js';
 
 const initialTasks = [];
 const tasksSection = document.querySelector(selectors.tasksSection);
 const tasks = document.querySelector(selectors.tasks);
 const tasksDate = tasks.querySelector(selectors.tasksDate);
+const moreButton = tasks.querySelector(selectors.moreButton);
+const preloader = tasks.querySelector(selectors.preloader);
 
 const searchForm = document.querySelector(selectors.search);
 const filterContainer = document.querySelector(selectors.filterContainer);
+const sortContainer = document.querySelector(selectors.sortContainer);
 
 // Экземпляр класса Api
 const api = new Api({
@@ -24,26 +30,6 @@ const api = new Api({
     }
 });
 
-// Приводим дату в нужный формат
-const getDate = function(dateString) {
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-
-    return `${day}.${month}.${year} ${hours}:${minutes == '0' ? '00' : minutes}`;
-}
-
-// Открытие попапа
-const popup = new Popup(selectors.popup, getDate);
-const handleTaskClick = function(taskInfo) {
-    popup.open(taskInfo);
-}
-
-popup.setEventListeners();
-
 // Инициализация задач
 const tasksList = new Section({
     items: initialTasks,
@@ -51,12 +37,13 @@ const tasksList = new Section({
     const taskElement = createTask(item, selectors.taskTemplate); 
     tasksList.setElement(taskElement);
     }
-}, tasksSection);
+}, tasksSection, moreButton);
 
 // Получить массив задач с Api
 api.getTasks()
 .then((tasks) => {
     console.log(tasks);
+    preloader.style.display = 'none';
     tasks.forEach(task => {
         initialTasks.push(task);
     });
@@ -71,6 +58,18 @@ function createTask (data, taskTemplate) {
     return taskElement;
 }
 
+// Приводим дату в нужный формат
+const getDate = function(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+
+    return `${day}.${month}.${year} ${hours}:${minutes == '0' ? '00' : minutes}`;
+}
+
 // Получить текущую дату
 const getCurrentDate = function() {
     const currentDate = new Date();
@@ -81,6 +80,14 @@ const getCurrentDate = function() {
 }
 
 tasksDate.textContent = getCurrentDate();
+
+// Открытие попапа
+const popup = new Popup(selectors.popup, getDate);
+const handleTaskClick = function(taskInfo) {
+    popup.open(taskInfo);
+}
+
+popup.setEventListeners();
 
 // Поиск по названию
 const search = new Search ({
@@ -123,3 +130,42 @@ const calendar = new Calendar({
 }, $( "#datepicker" ));
 calendar.showDatePicker();
 calendar.setEventListeners();
+
+// Фильтр на сегодняшнюю дату
+const filterToday = new FilterToday({
+    initialTasks: initialTasks,
+    renderFilteredTasks: (foundTasks) => {
+        tasksList.clear();
+        foundTasks.forEach((task) => {
+            const taskElement = createTask(task, selectors.taskTemplate);
+            tasksList.setElement(taskElement);
+        })
+    }
+}, filterContainer);
+filterToday.setEventListeners();
+
+// Фильтр задач на текущую неделю
+const filterWeek = new FilterWeek({
+    initialTasks: initialTasks,
+    renderFilteredTasks: (foundTasks) => {
+        tasksList.clear();
+        foundTasks.forEach((task) => {
+            const taskElement = createTask(task, selectors.taskTemplate);
+            tasksList.setElement(taskElement);
+        })
+    }
+}, filterContainer);
+filterWeek.setEventListeners();
+
+// Сортировка задач
+const tasksSort = new TasksSort({
+    initialTasks: initialTasks,
+    renderSortedTasks: (foundTasks) => {
+        tasksList.clear();
+        foundTasks.forEach((task) => {
+            const taskElement = createTask(task, selectors.taskTemplate);
+            tasksList.setElement(taskElement);
+        })
+    }
+}, sortContainer);
+tasksSort.setEventListeners();

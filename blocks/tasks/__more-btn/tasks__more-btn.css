@@ -1,0 +1,19 @@
+.tasks__more-btn {
+    display: none;
+    width: 150px;
+    height: 40px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #B0C4DE;
+    cursor: pointer;
+    transition: opacity .3s;
+}
+
+.tasks__more-btn_active {
+    display: block;
+}
+
+.tasks__more-btn:hover {
+    opacity: .3;
+}
