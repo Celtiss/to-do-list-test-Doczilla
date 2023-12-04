@@ -2,8 +2,11 @@
     width: 100%;
     border: none;
     background-color: transparent;
-    font-size: 20px;
+    font-family: 'Inter', Arial, sans-serif;
     font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #4d688b;
 }
 
 .search__input:focus {

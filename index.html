@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/index.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>To-do-list</title>
 </head>
 <body class="page">
     <div class="page__container">
         <header class="header">
             <form action="#" class="search">
-                <input type="button" class="search__button">
-                <input type="text" class="search__input" placeholder="Поиск" maxlength="30" minlength="2">
+                <button type="submit" class="search__button"></button>
+                <input type="text" name="searchInput" class="search__input" placeholder="Поиск" maxlength="30" minlength="2">
             </form>
             <img src="./images/profile-icon.png" alt="Картинка профиля" class="header__profile-icon">
         </header>
         <main class="content">
             <aside class="filter">
-                <button type="button" class="filter__button">Сегодня</button>
-                <button type="button" class="filter__button">На неделю</button>
+                <button type="button" class="filter__button filter__button_type_today">Сегодня</button>
+                <button type="button" class="filter__button filter__button_type_week">На неделю</button>
                 <div id="datepicker" class="filter__date"></div>
                 <label class="filter__checkbox-label">
                     <input type="checkbox" class="filter__checkbox">
@@ -34,40 +34,36 @@
                     <span class="tasks__date">8 мая 2022</span>
                     <button class="tasks__sort-btn">Сортировать по дате</button>
                 </div>
+                <span class="tasks__preloader">Получение данных с сервера</span>
                 <ul class="tasks__list">
-                    <li class="task">
-                        <h3 class="task__title">Название</h3>
-                        <div class="task__content">
-                            <p class="task_desc">Montes felis lectusnec nullalacus vitaesed neque vulputatenon vitaemorbi maurisleo lacus nullam tristique.</p>
-                            <input type="checkbox" id="task1" class="checkbox"><label for="task1"></label>
-                        </div>
-                        <p class="task__date">08.05.2022 00:10</p>
-                    </li>
-                    <li class="task">
-                        <h3 class="task__title">Название</h3>
-                        <div class="task__content">
-                            <p class="task__desc">Nullaconvallis sapienat maecenasdui habitasse quisnulla atultricies ametsed egetenim arcugravida vitaemorbi felisnisl ornaresit acvitae rhoncus integerduis tempusegestas risuseget aliquet dis magnis sapienat.</p>
-                            <input type="checkbox" id="task2" class="checkbox"><label for="task2"></label>
-                        </div>
-                        <p class="task__date">08.05.2022 00:10</p>
-                    </li>
                 </ul>
+                <button class="tasks__more-btn">Показать еще</button>
             </section>
         </main>
         <div class="popup">
             <div class="popup__container">
                 <div class="popup__head">
                     <div class="popup__info">
-                        <h3 class="popup__title">Luctus actellus</h3>
-                        <p class="popup__date">08.05.2022 00:10</p>
+                        <h3 class="popup__title"></h3>
+                        <p class="popup__date"></p>
                     </div>
-                    <div class="popup__checkbox"><input type="checkbox" id="task2" class="checkbox"><label for="task2"></label></div>
+                    <div class="popup__checkbox"><input type="checkbox" id="task" class="checkbox"><label for="task"></label></div>
                 </div>
-                <p class="popup__fullDesc">Montes felis lectusnec nullalacus vitaesed neque vulputatenon vitaemorbi maurisleo lacus nullam tristique. Cursuselit viverradolor condimentum donec auguemus vestibulumrhoncus malesuadaat ac elementumetiam rhoncus maecenas faucibusmagna gravidaultrices nisiin quisnulla seda nuncut mattis maurisnulla tristiquepellentesque mifringilla tristiquepellentesque suscipit sedid. Auguemus ultricesvel porttitortristique tempus elitmassa lectusnec ultricesturpis volutpatvolutpat atsed nullamvenenatis etiama viverravel suscipit mifringilla nam commodo posueredolor commodo pharetrapharetra ac magnis.</p>
+                <p class="popup__fullDesc"></p>
                 <button type="button" class="popup__btn-close">Готово</button>
             </div>
         </div>
     </div>
+    <template class="task-template">
+        <li class="task">
+            <h3 class="task__title"></h3>
+            <div class="task__content">
+                <p class="task__desc"></p>
+                <input type="checkbox" id="task" class="checkbox"><label class="task__label" for="task"></label>
+            </div>
+            <p class="task__date"></p>
+        </li>
+    </template>
     <script type="module" src="pages/index.js"></script>
 </body>
 </html>
