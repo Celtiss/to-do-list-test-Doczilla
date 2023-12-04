@@ -6,6 +6,11 @@
     border-radius: 10px;
     cursor: pointer;
     transition: opacity .3s;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 28px;
+    color: #4d688b;
 }
 
 .filter__button:hover{

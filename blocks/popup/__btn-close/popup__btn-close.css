@@ -2,4 +2,14 @@
     border: none;
     padding: 3px 24px;
     border-radius: 5px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000;
+    transition: opacity .3s;
+}
+
+.popup__btn-close:hover {
+    opacity: .7;
 }
